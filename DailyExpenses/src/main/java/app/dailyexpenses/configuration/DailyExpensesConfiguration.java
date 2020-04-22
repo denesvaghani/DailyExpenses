@@ -10,16 +10,15 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @EnableWebMvc
 @ComponentScan("app.dailyexpenses.controller")
 public class DailyExpensesConfiguration {
-	
+
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
-		
-		System.out.println("in configuration");
+
 		InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-		
+
 		internalResourceViewResolver.setPrefix("/WEB-INF/views/");
 		internalResourceViewResolver.setSuffix(".jsp");
-		
+
 		return internalResourceViewResolver;
 	}
 }
