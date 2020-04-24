@@ -42,10 +42,10 @@
 	</div>
 	<div>
 		<p align="center">
-			<a href="addSpent"> Add Spent</a>
+			<a href="spent/add"> Add Spent</a>
 		<p>
 		<p align="center">
-			<a href="addEarning"> Add Earning</a>
+			<a href="earning/add"> Add Earning</a>
 		<p>
 	</div>
 </body>

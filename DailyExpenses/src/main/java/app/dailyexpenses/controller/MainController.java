@@ -1,10 +1,14 @@
 package app.dailyexpenses.controller;
 
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import app.dailyexpenses.model.Earn;
+import app.dailyexpenses.model.LoginForm;
 import app.dailyexpenses.model.Spent;
 
 @Controller
@@ -12,18 +16,21 @@ import app.dailyexpenses.model.Spent;
 public class MainController {
 
 	@RequestMapping("/")
-	public String home() {
+	public String showLogin(@ModelAttribute("loginForm") LoginForm loginForm) {
+		return "login";
+	}
+
+	@RequestMapping("/login")
+	public String loginFormValidation(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult result) {
+		if (result.hasErrors()) {
+			return "login";
+		}
 		return "home";
 	}
 
-	@RequestMapping({"*/addSpent","/addSpent"})
-	public String redirectToSpent(@ModelAttribute("addSpent") Spent spent) {
-		return "addSpent";
+	@RequestMapping(value = "/updatedExpenses", method = RequestMethod.POST)
+	public String showUpdatedHomePage(@Valid @ModelAttribute("spent") Spent spent, BindingResult resultSpent,
+			@Valid @ModelAttribute("earn") Earn earn, BindingResult resultEarn) {
+		return "home";
 	}
-
-	@RequestMapping({"*/addEarning","/addEarning"})
-	public String redirectToEarn(@ModelAttribute("addEarn") Earn earn) {
-		return "addEarning";
-	}
-
 }

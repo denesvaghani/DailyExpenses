@@ -1,10 +1,14 @@
 package app.dailyexpenses.model;
 
-import java.util.concurrent.atomic.AtomicInteger;
+import javax.validation.constraints.Min;
+import org.hibernate.validator.constraints.NotBlank;
 
 public class Spent {
 	private int idSpent;
+	@NotBlank(message = " * Enter Amount")
+	@Min(value = 0, message = " * Value must be more than 0")
 	private double amount;
+	@NotBlank(message = " * Please Enter Description")
 	private String description;
 
 	public double getAmount() {

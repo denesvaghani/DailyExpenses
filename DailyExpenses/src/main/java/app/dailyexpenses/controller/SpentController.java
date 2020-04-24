@@ -5,14 +5,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import app.dailyexpenses.model.Earn;
 import app.dailyexpenses.model.Spent;
 
 @Controller
-@RequestMapping("/spent/")
+@RequestMapping("../spent")
 public class SpentController {
 	
-	@RequestMapping(value = "/updatedExpenses", method = RequestMethod.POST)
-	public String saveSpent(@ModelAttribute("addSpent") Spent addSpent) {
-		return "home";
+	@RequestMapping(value = "/add")
+	public String saveSpent(@ModelAttribute("spent") Spent spent) {
+		return "addSpent";
 	}
 }

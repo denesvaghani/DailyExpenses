@@ -8,20 +8,23 @@
 	<center>
 		<h2>Add Spent</h2>
 		<hr>
-		<form:form action="spent/updatedExpenses" method="post" modelAttribute="addSpent">
+		<form:form action="updatedExpenses" method="post"
+			modelAttribute="spent">
 			<table>
 				<tr>
 					<td><label for="id">Spent Id</label></td>
-					<td><form:input type="text" path="idSpent" id="id" /></td>
+					<td><form:input path="idSpent" id="id" /></td>
+					<form:errors path="idSpent" />
 				</tr>
 				<tr>
 					<td><label for="amount">Amount</label></td>
-					<td><form:input type="text" path="amount" id="amount" /></td>
+					<td><form:input path="amount" id="amount" /></td>
+					<form:errors path="amount" />
 				</tr>
 				<tr>
 					<td><label for="description">Description</label></td>
-					<td><form:input type="textbox" path="description"
-							id="description" /></td>
+					<td><form:input path="description" id="description" /></td>
+					<form:errors path="description" />
 				</tr>
 				<tr>
 					<td colspan="2"><center>
