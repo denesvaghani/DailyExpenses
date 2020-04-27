@@ -48,5 +48,7 @@
 		<br />
 		<input type="submit" value="Login">
 	</form:form>
+
+	<a href="registration"> Register</a>
 </body>
 </html>

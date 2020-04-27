@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "User")
@@ -24,21 +25,40 @@ public class User {
 	@Column(name = "user_last_name")
 	private String lastName;
 
-	@Column(name = "user_email")
-	private String email;
+	@Column(name = "user_phoneNumber")
+	private String phoneNumber;
 
 	@Column(name = "user_username")
 	private String userName;
 
-	@Column(name="user_password")
-	private char[] paasword;
-	
-	public char[] getPaasword() {
-		return paasword;
+	@Column(name = "user_password")
+	private char[] password;
+
+	@Transient
+	private char[] confirm_password;
+
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPaasword(char[] paasword) {
-		this.paasword = paasword;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public char[] getConfirm_password() {
+		return confirm_password;
+	}
+
+	public void setConfirm_password(char[] confirm_password) {
+		this.confirm_password = confirm_password;
+	}
+
+	public char[] getPassword() {
+		return password;
+	}
+
+	public void setPassword(char[] password) {
+		this.password = password;
 	}
 
 	public String getUserName() {
@@ -73,18 +93,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", userName=" + userName + ", paasword=" + Arrays.toString(paasword) + "]";
+		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", phoneNumber=" + phoneNumber
+				+ ", userName=" + userName + ", password=" + Arrays.toString(password) + ", confirm_password="
+				+ Arrays.toString(confirm_password) + "]";
 	}
 
 }

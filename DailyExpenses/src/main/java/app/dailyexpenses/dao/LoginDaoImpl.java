@@ -28,7 +28,7 @@ public class LoginDaoImpl implements LoginDao {
 		
 		try(Session session = HibernateUtil.getSessionFactory().openSession()){
 			transaction = session.beginTransaction();
-			session.createQuery(object)
+		//	session.createQuery(object);
 			
 		}
 		return false;
