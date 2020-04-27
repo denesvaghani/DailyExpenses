@@ -21,4 +21,5 @@ public class DailyExpensesConfiguration {
 
 		return internalResourceViewResolver;
 	}
+
 }

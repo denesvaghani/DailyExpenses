@@ -1,11 +1,11 @@
-package app.dailyexpenses.model;
+package app.dailyexpenses.dto;
 
 import java.util.Arrays;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotBlank;
 
-public class LoginForm {
+public class LoginFormDTO {
 
 	@NotBlank(message = " * Username can not be null ")
 	@Size(min = 2, message = " * Username length must have 2 character long")

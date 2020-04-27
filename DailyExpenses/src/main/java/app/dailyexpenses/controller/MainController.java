@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import app.dailyexpenses.dto.LoginFormDTO;
 import app.dailyexpenses.model.Earn;
-import app.dailyexpenses.model.LoginForm;
 import app.dailyexpenses.model.Spent;
 
 @Controller
@@ -16,12 +16,12 @@ import app.dailyexpenses.model.Spent;
 public class MainController {
 
 	@RequestMapping("/")
-	public String showLogin(@ModelAttribute("loginForm") LoginForm loginForm) {
+	public String showLogin(@ModelAttribute("loginForm") LoginFormDTO loginForm) {
 		return "login";
 	}
 
 	@RequestMapping("/login")
-	public String loginFormValidation(@Valid @ModelAttribute("loginForm") LoginForm loginForm, BindingResult result) {
+	public String loginFormValidation(@Valid @ModelAttribute("loginForm") LoginFormDTO loginForm, BindingResult result) {
 		if (result.hasErrors()) {
 			return "login";
 		}
