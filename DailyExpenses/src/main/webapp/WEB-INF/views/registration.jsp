@@ -19,7 +19,13 @@
 		}
 	}
 </script>
-
+<style type="text/css">
+{
+.errors {
+	position: fixed;
+	color: red;
+}
+</style>
 
 </head>
 <body align="center">
@@ -29,21 +35,27 @@
 		onsubmit="return checkPasswordMatching()" modelAttribute="user">
 		<label for="first_name">First Name </label>
 		<form:input path="firstName" id="first_name" />
+		<form:errors path="firstName"></form:errors>
 		<br />
 		<label for="last_name">Last Name </label>
 		<form:input path="lastName" id="last_name" />
+		<form:errors path="lastName"></form:errors>
 		<br />
 		<label for="phone">Phone Number </label>
 		<form:input path="phoneNumber" id="phone" />
+		<form:errors path="phoneNumber"></form:errors>
 		<br />
 		<label for="user_name">User Name </label>
 		<form:input path="userName" id=" user_name" />
+		<form:errors path="userName"></form:errors>
 		<br />
 		<label for="password">Password </label>
 		<form:password path="password" id="password" />
+		<form:errors path="password"></form:errors>
 		<br />
 		<label for="confirm_password">Confirm Password </label>
 		<form:password path="confirm_password" id="confirm_password" />
+		<form:errors path="confirm_password"></form:errors>
 		<br />
 
 		<form:button>Submit</form:button>
