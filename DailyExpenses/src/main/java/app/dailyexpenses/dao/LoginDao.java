@@ -1,8 +1,10 @@
 package app.dailyexpenses.dao;
 
-import app.dailyexpenses.dto.UserRegistrationDTO;
+import app.dailyexpenses.model.User;
 
 public interface LoginDao {
-	public void saveUser(UserRegistrationDTO user);
-	public boolean validate(String userName, char[] password);
+	
+	public boolean validate(String userName, String password);
+	public User fetchUser(String userName);
+	
 }

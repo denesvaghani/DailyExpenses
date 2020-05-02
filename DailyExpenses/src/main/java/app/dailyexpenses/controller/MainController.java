@@ -1,6 +1,9 @@
 package app.dailyexpenses.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -27,17 +30,24 @@ public class MainController {
 
 	@RequestMapping("/")
 	public String showLogin(@ModelAttribute("loginForm") LoginFormDTO loginForm) {
+		loginForm.setPassword("4514519");
+		loginForm.setUserName("denes_4514519");
 		return "login";
 	}
 
 	@RequestMapping("/login")
-	public String loginFormValidation(@Valid @ModelAttribute("loginForm") LoginFormDTO loginForm,
+	public String loginFormValidation(HttpServletRequest request,@Valid @ModelAttribute("loginForm") LoginFormDTO loginForm,
 			BindingResult result) {
 		if (result.hasErrors()) {
 			return "login";
-		} else if (loginDaoImpl.validate(loginForm.getUserName(), loginForm.getPassword())) {
+		} 
+		if (!loginDaoImpl.validate(loginForm.getUserName(), loginForm.getPassword())) {
 			return "login";
 		}
+		if(request.getSession(false) != null){
+			request.getSession().invalidate();
+		}
+		request.getSession().setAttribute("user_name",loginDaoImpl.fetchUser(loginForm.getUserName()));
 		return "home";
 	}
 

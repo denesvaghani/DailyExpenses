@@ -57,6 +57,17 @@ public class User {
 		this.userName = userName;
 	}
 
+	public User(String firstName, String lastName, String phoneNumber, String userName, String password,
+			Timestamp registrationTime) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNumber = phoneNumber;
+		this.userName = userName;
+		this.password = password;
+		this.registrationTime = registrationTime;
+	}
+
 	public Timestamp getRegistrationTime() {
 		return registrationTime;
 	}

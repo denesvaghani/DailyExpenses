@@ -44,7 +44,7 @@
 		<br />
 		<label for="password">Password</label>
 		<form:password id="password" path="password" />
-
+		<form:errors path="password" />
 		<br />
 		<input type="submit" value="Login">
 	</form:form>
