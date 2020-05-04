@@ -8,9 +8,11 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import app.dailyexpenses.dao.AddSpentDaoImpl;
 import app.dailyexpenses.dao.LoginDaoImpl;
 import app.dailyexpenses.dao.RegisterUserDaoImpl;
 import app.dailyexpenses.service.RegisterUserService;
+import app.dailyexpenses.service.SpentService;
 
 public class DailyExpensesInitializer implements WebApplicationInitializer {
 
@@ -21,6 +23,8 @@ public class DailyExpensesInitializer implements WebApplicationInitializer {
 		annotationConfigWebApplicationContext.register(RegisterUserService.class);
 		annotationConfigWebApplicationContext.register(LoginDaoImpl.class);
 		annotationConfigWebApplicationContext.register(RegisterUserDaoImpl.class);
+		annotationConfigWebApplicationContext.register(SpentService.class);
+		annotationConfigWebApplicationContext.register(AddSpentDaoImpl.class);
 		annotationConfigWebApplicationContext.setServletContext(servletContext);
 
 		ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("Dispatcher",

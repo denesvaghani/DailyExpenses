@@ -1,15 +1,22 @@
 package app.dailyexpenses.model;
 
-import javax.validation.constraints.Min;
-import org.hibernate.validator.constraints.NotBlank;
+import java.sql.Timestamp;
 
 public class Spent {
+
 	private int idSpent;
-	@NotBlank(message = " * Enter Amount")
-	@Min(value = 0, message = " * Value must be more than 0")
+	private String spentIn;
 	private double amount;
-	@NotBlank(message = " * Please Enter Description")
 	private String description;
+	private Timestamp spentTimeStamp;
+
+	public Spent(int idSpent, String spentIn, double amount, String description, Timestamp spentTimeStamp) {
+		this.idSpent = idSpent;
+		this.spentIn = spentIn;
+		this.amount = amount;
+		this.description = description;
+		this.spentTimeStamp = spentTimeStamp;
+	}
 
 	public double getAmount() {
 		return amount;
@@ -35,9 +42,26 @@ public class Spent {
 		this.idSpent = idSpent;
 	}
 
+	public String getSpentIn() {
+		return spentIn;
+	}
+
+	public void setSpentIn(String spentIn) {
+		this.spentIn = spentIn;
+	}
+
+	public Timestamp getSpentTimeStamp() {
+		return spentTimeStamp;
+	}
+
+	public void setSpentTimeStamp(Timestamp spentTimeStamp) {
+		this.spentTimeStamp = spentTimeStamp;
+	}
+
 	@Override
 	public String toString() {
-		return "Spent [idSpent=" + idSpent + ", amount=" + amount + ", description=" + description + "]";
+		return "Spent [idSpent=" + idSpent + ", spentIn=" + spentIn + ", amount=" + amount + ", description="
+				+ description + ", spentTimeStamp=" + spentTimeStamp + "]";
 	}
 
 }
