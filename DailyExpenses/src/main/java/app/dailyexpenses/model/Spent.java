@@ -4,18 +4,29 @@ import java.sql.Timestamp;
 
 public class Spent {
 
+	private int userid;
 	private int idSpent;
 	private String spentIn;
 	private double amount;
 	private String description;
 	private Timestamp spentTimeStamp;
-
-	public Spent(int idSpent, String spentIn, double amount, String description, Timestamp spentTimeStamp) {
+	
+	public Spent(int userid, int idSpent, String spentIn, double amount, String description, Timestamp spentTimeStamp) {
+		super();
+		this.userid = userid;
 		this.idSpent = idSpent;
 		this.spentIn = spentIn;
 		this.amount = amount;
 		this.description = description;
 		this.spentTimeStamp = spentTimeStamp;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 
 	public double getAmount() {

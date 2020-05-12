@@ -1,18 +1,14 @@
 package app.dailyexpenses.dto;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
+
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 
-public class AddSpentDTO {
-
-	//@NotEmpty(message = "please enter Amount")
-	//@Min(value = 1, message = "amount should be more than 0")
+public class AddEarnDTO {
 	private double amount;
 	@NotBlank(message = "Enter name of user")
 	@Pattern(regexp = "[a-zA-Z]", message = "enter name of user using a - z A - Z")
-	private String spentIn;
+	private String recievedFrom;
 	@NotBlank(message = "Enter description")
 	@Pattern(regexp = "[a-zA-Z0-9.]", message = "enter description using a - z A - Z 0 - 9 .")
 	private String description;
@@ -25,12 +21,12 @@ public class AddSpentDTO {
 		this.amount = amount;
 	}
 
-	public String getSpentIn() {
-		return spentIn;
+	public String getRecievedFrom() {
+		return recievedFrom;
 	}
 
-	public void setSpentIn(String spentIn) {
-		this.spentIn = spentIn;
+	public void setRecievedFrom(String recievedFrom) {
+		this.recievedFrom = recievedFrom;
 	}
 
 	public String getDescription() {
@@ -43,8 +39,9 @@ public class AddSpentDTO {
 
 	@Override
 	public String toString() {
-		return "AddSpentDTO [ amount=" + amount + ", spentIn=" + spentIn + ", description="
-				+ description + "]";
+		return "AddEarnDTO [amount=" + amount + ", recievedFrom=" + recievedFrom + ", description=" + description + "]";
 	}
+
+	
 
 }

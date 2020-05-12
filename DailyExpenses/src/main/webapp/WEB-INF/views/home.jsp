@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.List"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,11 +23,14 @@
 			<hr>
 
 			<table style="width: 100%">
-				<tr>
-					<td><b>${addSpent.idSpent}</b></td>
-					<td><b>${addSpent.amount}</b></td>
-					<td><b>${addSpent.description}</b></td>
-				</tr>
+				<c:forEach items="${spentList}" var="spent">
+					<tr>
+						<td><b>${spent.spentIn}</b></td>
+						<td><b>${spent.amount}</b></td>
+						<td><b>${spent.description}</b></td>
+						<td><b>${spent.spentTimeStamp}</b></td>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 		<div class="right-container">
@@ -32,23 +38,30 @@
 			<hr>
 
 			<table style="width: 100%">
-				<tr>
-					<td><b>${addEarn.idEarn}</b></td>
-					<td><b>${addEarn.amount}</b></td>
-					<td><b>${addEarn.description}</b></td>
-				</tr>
+				<c:forEach items="${earnList}" var="earn">
+					<tr>
+						<td><b>${earn.idEarn}</b></td>
+						<td><b>${earn.amount}</b></td>
+						<td><b>${earn.description}</b></td>
+						<td><b>${earn.earnTimeStamp}</b></td>
+					</tr>
+				</c:forEach>
 			</table>
 		</div>
 	</div>
 
 
 	<div>
-		<center>
-			<input type="submit" formaction="/addSpentForm" value="Add Spent" />
-		</center>
-		<center>
-			<input type="submit" onClick="addEarnOpen()" value="Add Earning">
-		</center>
+		<form>
+			<center>
+
+				<input type="submit" formaction="addSpentForm" value="Add Spent" />
+
+			</center>
+			<center>
+				<input type="submit" formaction="addEarnForm" value="Add Earning">
+			</center>
+		</form>
 	</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,37 +14,20 @@
 		<center>
 			<h2>Add Earning</h2>
 			<hr>
-			<form:form action="updatedExpenses" method="post"
-				modelAttribute="earn">
-				<table>
-					<tr>
-						<td><label for="id">Spent Id</label></td>
-						<td><form:input path="idEarn" id="id" /></td>
-						<form:errors path="idEarn" />
-					</tr>
-					<tr>
-						<td><label for="amount">Amount</label></td>
-						<td><form:input path="amount" id="amount" /></td>
-						<form:errors path="amount" />
-					</tr>
-					<tr>
-						<td><label for="recievedFrom">Description</label></td>
-						<td><form:input path="recievedFrom" id="recievedFrom" /></td>
-						<form:errors path="recievedFrom" />
-					</tr>
-					<tr>
-						<td><label for="description">Description</label></td>
-						<td><form:input path="description" id="description" /></td>
-						<form:errors path="description" />
-					</tr>
-					<tr>
-						<td colspan="2">
-							<center>
-								<input type="submit" value="Save Expense">
-							</center>
-						</td>
-					</tr>
-				</table>
+			<form:form action="addEarn" method="post" modelAttribute="earn">
+				<label for="amount">Amount</label>
+				<form:input path="amount" id="amount" />
+				<form:errors path="amount" />
+				<label for="recievedFrom">Received From</label>
+				<form:input path="recievedFrom" id="recievedFrom" />
+				<form:errors path="recievedFrom" />
+				<label for="description">Description</label>
+				<form:input path="description" id="description" />
+				<form:errors path="description" />
+				<center>
+					<input type="submit" value="Save Expense">
+				</center>
+
 			</form:form>
 		</center>
 	</div>

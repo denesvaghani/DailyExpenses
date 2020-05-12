@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,13 +16,12 @@
 			<hr>
 			<form:form action="addSpent" method="post" modelAttribute="spent">
 				<label for="spentin">Give to</label>
-				<form:input path="spentIn" id="spentin" />
-				<form:errors path="spentIn" />
+				<form:input id="spentin"  path="spentIn" />
+				<form:errors path="spentIn" /><br>
 				<label for="amount">Amount</label>
-				<form:input path="amount" id="amount" />
-				<form:errors path="amount" />
+				<form:input  id="amount" path="amount" /><br>
 				<label for="description">Description</label>
-				<form:input path="description" id="description" />
+				<form:input id="description" path="description"  />
 				<center>
 					<input type="submit" value="Save Expense">
 				</center>

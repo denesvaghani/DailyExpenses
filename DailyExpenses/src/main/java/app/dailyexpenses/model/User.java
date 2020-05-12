@@ -3,8 +3,7 @@ package app.dailyexpenses.model;
 import java.sql.Timestamp;
 
 public class User {
-
-	private static int id = 2;
+	private int id;
 	private String firstName;
 	private String lastName;
 	private String phoneNumber;
@@ -13,13 +12,14 @@ public class User {
 	private Timestamp registrationTime;
 
 	public User(Timestamp timestamp) {
-		this.registrationTime = registrationTime;
-		id++;
+		this.registrationTime = timestamp;
+//		id++;
 	}
 
-	public User(String firstName, String lastName, String phoneNumber, String userName, String password,
+	public User(int id,String firstName, String lastName, String phoneNumber, String userName, String password,
 			Timestamp registrationTime) {
 		super();
+		this.id=id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phoneNumber = phoneNumber;

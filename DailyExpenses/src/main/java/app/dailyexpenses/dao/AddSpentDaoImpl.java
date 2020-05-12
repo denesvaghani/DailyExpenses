@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import app.dailyexpenses.model.Spent;
 
-@Repository("addSpentDaoImpl")
-public class AddSpentDaoImpl implements addSpentDao {
+@Repository
+public class AddSpentDaoImpl implements AddSpentDao {
 
 	@Autowired
 	JdbcTemplate jdbcTemplate;
@@ -29,8 +29,8 @@ public class AddSpentDaoImpl implements addSpentDao {
 	 * it return true if persistence is successful
 	 */
 	public boolean storeSpent(Spent spent) {
-		String store = "INSERT INTO `spent` (`spent_id`, `spent_to`, `spent_amount`, `spent_description`, `spent_date`) VALUES (?, ?, ?, ?, ?)";
-		int result = jdbcTemplate.update(store, new Object[] { spent.getIdSpent(), spent.getSpentIn(),
+		String store = "INSERT INTO `spent` (`user_id`,`spent_id`, `spent_to`, `spent_amount`, `spent_description`, `spent_date`) VALUES (?,?, ?, ?, ?, ?)";
+		int result = jdbcTemplate.update(store, new Object[] {spent.getUserid(), spent.getIdSpent(), spent.getSpentIn(),
 				spent.getAmount(), spent.getDescription(), spent.getSpentTimeStamp() });
 		if (result >= 1)
 			return true;

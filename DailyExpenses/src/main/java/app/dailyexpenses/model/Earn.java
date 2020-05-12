@@ -1,16 +1,35 @@
 package app.dailyexpenses.model;
 
-import javax.validation.constraints.Min;
-
-import org.hibernate.validator.constraints.NotBlank;
+import java.sql.Timestamp;
 
 public class Earn {
+
+	private int userid;
 	private int idEarn;
-	@NotBlank(message = " * Enter Amount")
-	@Min(value = 0, message = " * Value must be more than 0")
+	private String recievedFrom;
 	private double amount;
-	@NotBlank(message = " * Please Enter Description")
 	private String description;
+	private Timestamp earnTimeStamp;
+
+	
+
+	public Earn(int userid, int idEarn, String recievedFrom, double amount, String description,
+			Timestamp spentTimeStamp) {
+		this.userid = userid;
+		this.idEarn = idEarn;
+		this.recievedFrom = recievedFrom;
+		this.amount = amount;
+		this.description = description;
+		this.earnTimeStamp = spentTimeStamp;
+	}
+
+	public int getUserid() {
+		return userid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
 
 	public double getAmount() {
 		return amount;
@@ -36,9 +55,30 @@ public class Earn {
 		this.idEarn = idEarn;
 	}
 
+	public String getRecievedFrom() {
+		return recievedFrom;
+	}
+
+	public void setRecievedFrom(String recievedFrom) {
+		this.recievedFrom = recievedFrom;
+	}
+
+
+
+	public Timestamp getEarnTimeStamp() {
+		return earnTimeStamp;
+	}
+
+	public void setEarnTimeStamp(Timestamp earnTimeStamp) {
+		this.earnTimeStamp = earnTimeStamp;
+	}
+
 	@Override
 	public String toString() {
-		return "Spent [idEarn=" + idEarn + ", amount=" + amount + ", description=" + description + "]";
+		return "Earn [userid=" + userid + ", idEarn=" + idEarn + ", recievedFrom=" + recievedFrom + ", amount=" + amount
+				+ ", description=" + description + ", earnTimeStamp=" + earnTimeStamp + "]";
 	}
+
+	
 
 }
