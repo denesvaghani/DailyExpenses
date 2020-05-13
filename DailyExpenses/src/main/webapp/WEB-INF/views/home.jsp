@@ -23,6 +23,12 @@
 			<hr>
 
 			<table style="width: 100%">
+			<tr>
+				<th>Given To</th>
+				<th>Amount</th>
+				<th>Description</th>
+				<th>Time</th>
+			</tr>
 				<c:forEach items="${spentList}" var="spent">
 					<tr>
 						<td><b>${spent.spentIn}</b></td>
@@ -38,9 +44,15 @@
 			<hr>
 
 			<table style="width: 100%">
+			<tr>
+				<th>Received From</th>
+				<th>Amount</th>
+				<th>Description</th>
+				<th>Time</th>
+			</tr>
 				<c:forEach items="${earnList}" var="earn">
 					<tr>
-						<td><b>${earn.idEarn}</b></td>
+						<td><b>${earn.recievedFrom}</b></td>
 						<td><b>${earn.amount}</b></td>
 						<td><b>${earn.description}</b></td>
 						<td><b>${earn.earnTimeStamp}</b></td>

@@ -17,13 +17,14 @@
 			<form:form action="addEarn" method="post" modelAttribute="earn">
 				<label for="amount">Amount</label>
 				<form:input path="amount" id="amount" />
-				<form:errors path="amount" />
+				<form:errors path="amount" /><br>
 				<label for="recievedFrom">Received From</label>
 				<form:input path="recievedFrom" id="recievedFrom" />
-				<form:errors path="recievedFrom" />
+				<form:errors path="recievedFrom" /><br>
 				<label for="description">Description</label>
 				<form:input path="description" id="description" />
 				<form:errors path="description" />
+				<br>
 				<center>
 					<input type="submit" value="Save Expense">
 				</center>
